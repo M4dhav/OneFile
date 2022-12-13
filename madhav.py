@@ -15,6 +15,7 @@ def encryption(filepath,key = None):
         fileexten = fileexten[::-1]
         filename = filename[::-1]
         filename = filename.replace(".","")
+        filename = filename.replace(fileexten, "")
         filename += "_encrypted"
         filename += "." + fileexten
         if key == None:
@@ -31,6 +32,7 @@ def encryption(filepath,key = None):
             content = file.read()
         content_encrypted = Fernet(key).encrypt(content)
         if choice == "New" or choice == "new":
+
             with open(filename,"wb") as file:
                 file.write(content_encrypted)
         else:
