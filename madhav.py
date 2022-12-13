@@ -27,12 +27,12 @@ def encryption(filepath,key = None):
         choice = input("Do you want a new encrypted copy of the file or for the current copy to be encrypted?(New/Current)\n")
         possible_inputs = ["New", "new", "Current", "current"]
         while choice not in possible_inputs:
-            print("Please enter a valid choice.")
+            print("Please enter a valid choice.\n")
+            choice = input("Do you want a new encrypted copy of the file or for the current copy to be encrypted?(New/Current)\n")
         with open(filepath,"rb") as file:
             content = file.read()
         content_encrypted = Fernet(key).encrypt(content)
         if choice == "New" or choice == "new":
-
             with open(filename,"wb") as file:
                 file.write(content_encrypted)
         else:
@@ -56,7 +56,8 @@ def decryption(filepath):
         fileexten = fileexten[::-1]
         filename = filename[::-1]
         filename = filename.replace(".","")
-        filename += "_decrypted"
+        filename = filename.replace(fileexten, "")
+        filename = filename.replace("_encrypted", "_decrypted")
         filename += "." + fileexten
         key_path = input("Please enter your key file's path:\n")
         with open(key_path, "rb") as key_file:
