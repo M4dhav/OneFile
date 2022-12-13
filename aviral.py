@@ -9,7 +9,6 @@ import os
 '''
 def copyD():
     '''COPY FILES TO ANOTHER DIRECTORY'''
-    # Python program to explain shutil.copy() method
     source = "path/main.py"
     destination ="path/main2.py"
 
@@ -21,7 +20,6 @@ def copyD():
     # created file
     print("the file is stored at: ", dest)
 def copyF():
-    # Python program to explain shutil.copyfile() method
     '''COPY FILES FROM ONE FILE TO ANOTHER'''
 
     # Source path
@@ -35,7 +33,6 @@ def copyF():
     print("Destination path:", dest)
 def copyT():
     '''COPY ENTIRE TREE FROM SOURCE TO DEST,DEST MUST NOT EXIST FROM BEFORE'''
-    # Python program to explain shutil.copytree() method
     # path
     path = 'C:/Users/ksaty/csv/gfg'
 
@@ -60,8 +57,6 @@ def copyT():
     print("Destination path:", destination)
 def delT():
     '''DELETE ENTIRE DIRECTORY TREE'''
-    # Python program to demonstrate
-    # shutil.rmtree()
     # location
     location = "csv/gfg/"
 
