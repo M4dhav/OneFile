@@ -24,20 +24,20 @@ def encryption(filepath,key = None):
             key = key
         with open("encryption_key.key", "wb") as key_file:
             key_file.write(key)
-        choice = input("Do you want a new encrypted copy of the file or for the current copy to be encrypted?(New/Current)\n")
-        possible_inputs = ["New", "new", "Current", "current"]
-        while choice not in possible_inputs:
-            print("Please enter a valid choice.\n")
-            choice = input("Do you want a new encrypted copy of the file or for the current copy to be encrypted?(New/Current)\n")
+        # choice = input("Do you want a new encrypted copy of the file or for the current copy to be encrypted?(New/Current)\n")
+        # possible_inputs = ["New", "new", "Current", "current"]
+        # while choice not in possible_inputs:
+        #     print("Please enter a valid choice.\n")
+        #     choice = input("Do you want a new encrypted copy of the file or for the current copy to be encrypted?(New/Current)\n")
         with open(filepath,"rb") as file:
             content = file.read()
         content_encrypted = Fernet(key).encrypt(content)
-        if choice == "New" or choice == "new":
-            with open(filename,"wb") as file:
-                file.write(content_encrypted)
-        else:
-            with open(filepath, "wb") as file:
-                file.write(content_encrypted)
+        # if choice == "New" or choice == "new":
+        #     with open(filename,"wb") as file:
+        #         file.write(content_encrypted)
+        # else:
+        with open(filepath, "wb") as file:
+            file.write(content_encrypted)
     except FileNotFoundError:
         print("Please enter a valid file location.")
 
@@ -66,21 +66,21 @@ def decryption(filepath):
                 os.remove(key_path)
             except PermissionError:
                 pass
-        choice = input("Do you want a new decrypted copy of the file or for the current copy to be decrypted?(New/Current)\n")
-        possible_inputs = ["New", "new", "Current", "current"]
-        while choice not in possible_inputs:
-            print("Please enter a valid choice.")
+        # choice = input("Do you want a new decrypted copy of the file or for the current copy to be decrypted?(New/Current)\n")
+        # possible_inputs = ["New", "new", "Current", "current"]
+        # while choice not in possible_inputs:
+        #     print("Please enter a valid choice.")
         with open(filepath,"rb") as file:
             content = file.read()
         content_decrypted = Fernet(key).decrypt(content)
-        if choice == "New" or choice == "new":
-            with open(filename,"wb") as file:
-                file.write(content_decrypted)
-        else:
-            with open(filepath, "wb") as file:
-                file.write(content_decrypted)
+        # if choice == "New" or choice == "new":
+        #     with open(filename,"wb") as file:
+        #         file.write(content_decrypted)
+        # else:
+        with open(filepath, "wb") as file:
+            file.write(content_decrypted)
         
     except FileNotFoundError:
         print("Please enter a valid file location.")
-encryption(input())
+#encryption(input())
 decryption(input())
