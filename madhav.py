@@ -1,6 +1,8 @@
 import os
 from cryptography.fernet import Fernet
-def encryption(filepath,key = None):
+from save import sav
+from save import add_file
+def encryption(filepath):
     try:
         filename = ""
         fileexten = ""
@@ -18,11 +20,9 @@ def encryption(filepath,key = None):
         filename = filename.replace(fileexten, "")
         filename += "_encrypted"
         filename += "." + fileexten
-        if key == None:
-            key = Fernet.generate_key()
-        else:
-            key = key
-        with open("encryption_key.key", "wb") as key_file:
+        key = Fernet.generate_key()
+        key_path = sav()
+        with open(key_path, "wb") as key_file:
             key_file.write(key)
         # choice = input("Do you want a new encrypted copy of the file or for the current copy to be encrypted?(New/Current)\n")
         # possible_inputs = ["New", "new", "Current", "current"]
@@ -36,7 +36,7 @@ def encryption(filepath,key = None):
         #     with open(filename,"wb") as file:
         #         file.write(content_encrypted)
         # else:
-        with open(filepath, "wb") as file:
+        with open(sav(), "wb") as file:
             file.write(content_encrypted)
     except FileNotFoundError:
         print("Please enter a valid file location.")
@@ -59,7 +59,7 @@ def decryption(filepath):
         filename = filename.replace(fileexten, "")
         filename = filename.replace("_encrypted", "_decrypted")
         filename += "." + fileexten
-        key_path = input("Please enter your key file's path:\n")
+        key_path = add_file("Select Key File Path")
         with open(key_path, "rb") as key_file:
             key = key_file.read()
             try:
@@ -77,10 +77,10 @@ def decryption(filepath):
         #     with open(filename,"wb") as file:
         #         file.write(content_decrypted)
         # else:
-        with open(filepath, "wb") as file:
+        with open(sav(), "wb") as file:
             file.write(content_decrypted)
         
     except FileNotFoundError:
         print("Please enter a valid file location.")
 #encryption(input())
-decryption(input())
+# decryption(input())
