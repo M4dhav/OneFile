@@ -9,10 +9,10 @@ import os
 '''
 def copyD():
     '''COPY FILES TO ANOTHER DIRECTORY'''
-    source = "path/main.py"
-    destination ="path/main2.py"
+    source = input("Enter the source path of the file: ")
+    destination = input("Enter the directory where the file needs to be: ")
 
-    # Copy the content of
+    # Copy the content of   
     # source to destination
     dest = shutil.copy(source, destination)
 
@@ -23,10 +23,9 @@ def copyF():
     '''COPY FILES FROM ONE FILE TO ANOTHER'''
 
     # Source path
-    source = "csv/main.py"
-
+    source = input("Enter the source path of the file: ")
     # Destination path
-    destination = "csv/gfg/main_2.py"
+    destination = input("Enter the path of the other file: ")
 
     dest = shutil.copyfile(source, destination)
 
@@ -34,16 +33,16 @@ def copyF():
 def copyT():
     '''COPY ENTIRE TREE FROM SOURCE TO DEST,DEST MUST NOT EXIST FROM BEFORE'''
     # path
-    path = 'C:/Users/ksaty/csv/gfg'
+    path = input("Enter the path of the file:")
 
     print("Before copying file:")
     print(os.listdir(path))
 
     # Source path
-    src = 'C:/Users/ksaty/csv/gfg'
+    src = path
 
     # Destination path
-    dest = 'C:/Users/ksaty/csv/gfg/dest'
+    dest = path+'/dest'
 
     # Copy the content of
     # source to destination
@@ -58,10 +57,10 @@ def copyT():
 def delT():
     '''DELETE ENTIRE DIRECTORY TREE'''
     # location
-    location = "csv/gfg/"
+    location = input("Enter the path to the directory")
 
     # directory
-    dir = "dest"
+    dir = input("Enter the directory you want to delete")
 
     # path
     path = os.path.join(location, dir)
@@ -71,7 +70,7 @@ def delT():
 def FS():
     '''SEARCH FOR A FILE'''
     # file search
-    cmd = 'anaconda'
+    cmd = input("Enter the name of the file whose path you want to find: ")
 
     # Using shutil.which() method
     locate = shutil.which(cmd)
