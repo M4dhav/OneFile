@@ -14,6 +14,23 @@ root.maxsize(900,550)
 root.minsize(900,550)
 root.title("OneFile")
 
+def new():
+    top = Toplevel()
+    top.geometry("300x150")
+    top.maxsize(300,150)
+    top.minsize(300,150)
+    def fil():
+        print(file_n.get())
+    file_n = StringVar()
+    file_e = Entry(top,textvariable=file_n)
+    file_e.place(x=75,y = 50)
+    lbl = Label(top,text='''Enter file format (should be zip,bztar,gztar,xztar)''').place(x=35,y=15)
+    b = Button(top,text = "SUBMIT",command=fil)
+    b.place(x=110,y = 75)
+
+    top.mainloop()
+
+
 img = ImageTk.PhotoImage(file = 'logo.png')
 root.iconphoto(False,img)
 
@@ -29,7 +46,7 @@ label.place(x=330,y=50)
 text = "Select a file"
 
 def compress():
-    pass
+    new()
 comp = ImageTk.PhotoImage(file=r"compress.png")
 b2 = Button(root,command=compress,height = 100,width = 100,image=comp)
 b2.place(x=100, y=375)
