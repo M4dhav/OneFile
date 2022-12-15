@@ -2,6 +2,7 @@ import os
 from cryptography.fernet import Fernet
 from save import sav
 from save import add_file
+from save import rot
 def encryption(filepath):
     try:
         filename = ""
@@ -21,27 +22,22 @@ def encryption(filepath):
         filename += "_encrypted"
         filename += "." + fileexten
         key = Fernet.generate_key()
-        key_path = sav()
+        key_path = sav("Choose Key File Path (Please save as '.key' file)")
         with open(key_path, "wb") as key_file:
             key_file.write(key)
-        # choice = input("Do you want a new encrypted copy of the file or for the current copy to be encrypted?(New/Current)\n")
-        # possible_inputs = ["New", "new", "Current", "current"]
-        # while choice not in possible_inputs:
-        #     print("Please enter a valid choice.\n")
-        #     choice = input("Do you want a new encrypted copy of the file or for the current copy to be encrypted?(New/Current)\n")
         with open(filepath,"rb") as file:
             content = file.read()
         content_encrypted = Fernet(key).encrypt(content)
-        # if choice == "New" or choice == "new":
-        #     with open(filename,"wb") as file:
-        #         file.write(content_encrypted)
-        # else:
-        file_path = sav()
-        file_path += fileexten
-        with open(file_path, "wb") as file:
-            file.write(content_encrypted)
+        if rot():
+            with open(sav("Select Encrypted File Path"), "wb") as file:
+                file.write(content_encrypted)
+        else:
+            with open(filepath, "wb") as file:
+                file.write(content_encrypted)
+            return
     except FileNotFoundError:
         print("Please enter a valid file location.")
+        # encryption(add_file("Select a File"))
 
 def decryption(filepath):
     try:
