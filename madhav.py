@@ -80,5 +80,3 @@ def decryption(filepath):
         
     except FileNotFoundError:
         print("Please enter a valid file location.")
-#encryption(input())
-# decryption(input())
