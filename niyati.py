@@ -7,6 +7,7 @@ from madhav import encryption as e
 from madhav import decryption as d
 from save import add_file
 import img_grabber
+from tkinter import messagebox as mb
 root = Tk()
 root.geometry("900x550")
 root.maxsize(900,550)
@@ -29,18 +30,17 @@ text = "Select a file"
 def compress():
     pass
 comp = ImageTk.PhotoImage(file=r"compress.png")
-b2 = Button(root,command=compress,height = 100,width = 150,image=comp)
-b2.place(x=60, y=350)
-# lbl1 = Label(root,text="COMPRESS",font=("",10,"bold")).place(x=100,y=410)
+b2 = Button(root,command=compress,height = 100,width = 100,image=comp)
+b2.place(x=60, y=400)
+
 
 
 
 def decompress():
     pass
 decmp = ImageTk.PhotoImage(file=r"decompress.png") 
-b3 = Button(root,command=decompress,height = 100,width = 150,image=decmp)
-b3.place(x=270,y=350)
-# lbl2 = Label(root,text="DECOMPRESS",font=("",10,"bold")).place(x=300,y=410)
+b3 = Button(root,command=decompress,height = 100,width = 100,image=decmp)
+b3.place(x=270,y=400)
 
 
 
@@ -48,21 +48,18 @@ def encrypt():
     e(add_file(text))
     # sav()
 encrp = ImageTk.PhotoImage(file=r"encrypt.png")
-b4 = Button(root,text="ENCRYPT",command=encrypt,height = 100,width = 150,image=encrp)
-b4.place(x=480,y=350)
-# lbl1 = Label(root,text="ENCRYPT",font=("",10,"bold"))
-# lbl1.place(x=530,y=410)
+b4 = Button(root,text="ENCRYPT",command=encrypt,height = 100,width = 100,image=encrp)
+b4.place(x=480,y=400)
+
 
 
 
 def decrypt():
     d(add_file(text))
-    # sav()
 decrp = ImageTk.PhotoImage(file=r"decrypt.png")
-b5 = Button(root,text="DECRYPT",command=decrypt,height = 100,width = 150,image=decrp)
-b5.place(x=690, y=350)
-# lbl1 = Label(root,text="DECRYPT",font=("",10,"bold")).place(x=740,y=410)
-  
+b5 = Button(root,text="DECRYPT",command=decrypt,height = 100,width = 100,image=decrp)
+b5.place(x=690, y=400)
+
 
 
 
