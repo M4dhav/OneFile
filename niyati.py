@@ -59,6 +59,4 @@ b5.place(x=690, y=300)
 lbl1 = Label(root,text="DECRYPT",font=("",10,"bold")).place(x=740,y=410)
   
 
-
-
 root.mainloop()
