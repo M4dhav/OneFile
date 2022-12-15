@@ -61,6 +61,4 @@ b5 = Button(root,text="DECRYPT",command=decrypt,height = 100,width = 100,image=d
 b5.place(x=690, y=400)
 
 
-
-
 root.mainloop()

@@ -1,6 +1,6 @@
 import requests
 import os
-dic = {"compress": "https://i.ibb.co/frgGFBP/compress-icon.jpg", "decompress": "https://i.ibb.co/1ZnGpjQ/decompress-icon.jpg", "decrypt":"https://i.ibb.co/hL9qZMj/decrypt-icon.jpg", "encrypt":"https://i.ibb.co/prwryRc/encrpyt-icon.jpg", "logo": "https://i.ibb.co/ZgPWNdb/final-One-Filelogo.jpg"}
+dic = {"compress": "https://i.ibb.co/HXfHfHr/compress-new.jpg", "decompress": "https://i.ibb.co/N6hwjWs/decompress-new.jpg", "decrypt":"https://i.ibb.co/3cTCSF7/appstore1024.jpg", "encrypt":"https://i.ibb.co/kqfKMv2/encrypt.jpg", "logo": "https://i.ibb.co/ZgPWNdb/final-One-Filelogo.jpg"}
 keys = list(dic.keys())
 for i in keys:
     url = dic[i]
