@@ -77,3 +77,25 @@ def FS():
 
     # Print result
     print(locate)
+'''COMPRESSION FUNCTIONS'''
+def UZ():
+    # Full path of
+    # the archive file
+    filename = input("Enter the complete path of the file")
+
+    # Target directory
+    extract_dir = input("Enter the path where the file should be extracted")
+
+    # Format of archive file
+    archive_format = input("Enter file format of zipped file")
+
+    # Unpack the archive file
+    shutil.unpack_archive(filename, extract_dir, archive_format)
+    print("Archive file unpacked successfully.")
+def make_archive():
+    filename = input("Enter the complete path of the file")
+    newname= input("Enter the path where the file should be along with the path name of the new file")
+    formatf=input("Enter the file format you want to zip the file in")
+    shutil.make_archive(newname,formatf,filename)
+    
+
