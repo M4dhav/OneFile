@@ -36,7 +36,9 @@ def encryption(filepath):
         #     with open(filename,"wb") as file:
         #         file.write(content_encrypted)
         # else:
-        with open(sav(), "wb") as file:
+        file_path = sav()
+        file_path += fileexten
+        with open(file_path, "wb") as file:
             file.write(content_encrypted)
     except FileNotFoundError:
         print("Please enter a valid file location.")
@@ -82,5 +84,3 @@ def decryption(filepath):
         
     except FileNotFoundError:
         print("Please enter a valid file location.")
-#encryption(input())
-# decryption(input())
