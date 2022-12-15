@@ -5,6 +5,7 @@ from tkinter import Button
 from PIL import ImageTk, Image
 from madhav import encryption as e
 from madhav import decryption as d
+from aviral import *
 from save import add_file
 import img_grabber
 from tkinter import messagebox as mb
@@ -29,7 +30,7 @@ label.place(x=330,y=50)
 text = "Select a file"
 
 def compress():
-    pass
+    ma()
 comp = ImageTk.PhotoImage(file=r"compress.png")
 b2 = Button(root,command=compress,height = 100,width = 100,image=comp)
 b2.place(x=100, y=375)
@@ -38,7 +39,7 @@ b2.place(x=100, y=375)
 
 
 def decompress():
-    pass
+    uz()
 decmp = ImageTk.PhotoImage(file=r"decompress.png") 
 b3 = Button(root,command=decompress,height = 100,width = 100,image=decmp)
 b3.place(x=300,y=375)
