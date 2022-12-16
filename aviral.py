@@ -1,4 +1,5 @@
 import shutil
+import os
 from save import add_file
 from save import sav
 from save import ret_dir
@@ -31,22 +32,33 @@ def new():
 def uz():
     # Full path of
     # the archive file
-    filename = add_file("Select File to be unarchived")
+    filename = add_file("x")
 
     # Target directory
-    extract_dir = ret_dir()
+    #print(filename.split('/')[-1].split('.')[0])
+    extract_dir = ret_dir()+'/'+filename.split('/')[-1].split('.')[0]
+    os.mkdir(extract_dir)
+    #print(extract_dir+filename.split('/')[-1].split('.')[0])
+
 
     # Format of archive file
-    archive_format = new()
+    new()
+    global var
+    archive_format = var
+    #print(filename)
+    #print(extract_dir)
+    #print(archive_format)
 
     # Unpack the archive file
     shutil.unpack_archive(filename, extract_dir, archive_format)
-    print("Archive file unpacked successfully.")
+    #shutil.unpack_archive('C:\Users\Dell\Desktop\New folder\PYTHON.zip','C:\Users\Dell\Documents\PYTHON','zip')
 
 #make archive function
 def ma():
-    filename = add_file("Select File to be archived")
-    newname= ret_dir()
+    filename = ret_dir()
+    #print(filename)
+    newname= ret_dir()+'/'+filename.split('/')[-1]
+    #print(newname)
     new()
     global var
     formatf = var
