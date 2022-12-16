@@ -5,10 +5,10 @@ from tkinter import Button
 from PIL import ImageTk, Image
 from madhav import encryption as e
 from madhav import decryption as d
-from aviral import *
+from aviral import ma
+from aviral import uz
 from save import add_file
 import img_grabber
-from save import error
 
 root = Tk()
 root.geometry("900x550")
@@ -16,27 +16,7 @@ root.maxsize(900,550)
 root.minsize(900,550)
 root.title("OneFile")
 
-def new():
-    top = Toplevel()
-    top.geometry("300x150")
-    top.maxsize(300,150)
-    top.minsize(300,150)
-    def fil():
-        if file_n.get() not in ["zip", "bztar", "gztar", "xztar"]:
-            top.destroy()
-            error("Please enter a valid file format")
-            new()
-        else: 
-            top.destroy()
-            return (file_n.get())
-    file_n = StringVar()
-    file_e = Entry(top,textvariable=file_n)
-    file_e.place(x=75,y = 50)
-    lbl = Label(top,text='''Enter file format (should be zip,bztar,gztar,xztar)''').place(x=35,y=15)
-    b = Button(top,text = "SUBMIT",command=fil)
-    b.place(x=110,y = 75)
 
-    top.mainloop()
 
 
 img = ImageTk.PhotoImage(file = 'logo.png')
@@ -54,7 +34,6 @@ label.place(x=330,y=50)
 text = "Select a file"
 
 def compress():
-    new()
     ma()
 comp = ImageTk.PhotoImage(file=r"compress.png")
 b2 = Button(root,command=compress,height = 100,width = 100,image=comp)

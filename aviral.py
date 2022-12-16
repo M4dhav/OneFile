@@ -2,6 +2,8 @@ import shutil
 from save import add_file
 from save import sav
 from save import ret_dir
+from save import new
+
 
 '''COMPRESSION FUNCTIONS'''
 def uz():
@@ -13,7 +15,7 @@ def uz():
     extract_dir = ret_dir()
 
     # Format of archive file
-    archive_format = input("Enter file format of zipped file")
+    archive_format = new()
 
     # Unpack the archive file
     shutil.unpack_archive(filename, extract_dir, archive_format)
@@ -21,7 +23,7 @@ def uz():
 def ma():
     filename = add_file("Select File to be archived")
     newname= ret_dir()
-    formatf=input("Enter the file format you want to zip the file in")
+    formatf=new()
     shutil.make_archive(newname,formatf,filename)
     
 
