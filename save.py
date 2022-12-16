@@ -39,24 +39,3 @@ def ret_dir():
 def error(a):
     mb.showerror("Error",a)
 
-def new():
-    top = Toplevel()
-    top.geometry("300x150")
-    top.maxsize(300,150)
-    top.minsize(300,150)
-    def fil():
-        if file_n.get() not in ["zip", "bztar", "gztar", "xztar"]:
-            top.destroy()
-            error("Please enter a valid file format")
-            new()
-        else: 
-            top.destroy()
-            return (file_n.get())
-    file_n = StringVar()
-    file_e = Entry(top,textvariable=file_n)
-    file_e.place(x=75,y = 50)
-    lbl = Label(top,text='''Enter file format (should be zip,bztar,gztar,xztar)''').place(x=35,y=15)
-    b = Button(top,text = "SUBMIT",command=fil)
-    b.place(x=110,y = 75)
-
-    top.mainloop()
