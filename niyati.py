@@ -8,7 +8,8 @@ from madhav import decryption as d
 from aviral import *
 from save import add_file
 import img_grabber
-from tkinter import messagebox as mb
+from save import error
+
 root = Tk()
 root.geometry("900x550")
 root.maxsize(900,550)
@@ -21,7 +22,13 @@ def new():
     top.maxsize(300,150)
     top.minsize(300,150)
     def fil():
-        print(file_n.get())
+        if file_n.get() not in ["zip", "bztar", "gztar", "xztar"]:
+            top.destroy()
+            error("Please enter a valid file format")
+            new()
+        else: 
+            top.destroy()
+            return (file_n.get())
     file_n = StringVar()
     file_e = Entry(top,textvariable=file_n)
     file_e.place(x=75,y = 50)
@@ -79,6 +86,5 @@ def decrypt():
 decrp = ImageTk.PhotoImage(file=r"decrypt.png")
 b5 = Button(root,text="DECRYPT",command=decrypt,height = 100,width = 100,image=decrp)
 b5.place(x=700, y=375)
-
 
 root.mainloop()
