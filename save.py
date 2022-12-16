@@ -6,7 +6,10 @@ def sav(text):
     return d 
 def add_file(text):
     d = filedialog.askopenfilename(initialdir="/",title=text,filetypes = (("Allfiles","*.*"),("TxT files","*.txt")))
-    return d 
+    return d
+def ret_dir():
+    d = filedialog.askdirectory(initialdir="/", title = "Enter directory to be unzipped to")
+    return d
 # def rot():
 #     def dest():
 #         top.destroy()
