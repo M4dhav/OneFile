@@ -20,10 +20,11 @@ def new():
     clicked = StringVar()
     clicked.set("zip")
     drop = OptionMenu(top , clicked,*options)
-    drop.place(x=105,y=40)
-    lbl = Label(top,text='''Select file format (Compression Degree: zip<bztar<gztar<xztar)''').place(x=20,y=15)
+    drop.place(x=105,y=45)
+    lbl = Label(top,text='''Select file format 
+    (Compression Degree: zip<bztar<gztar<xztar)''').place(x=20,y=15)
     b = Button(top,text = "SUBMIT",command=fil)
-    b.place(x=110,y = 75)
+    b.place(x=110,y = 80)
 
     top.mainloop()
 
