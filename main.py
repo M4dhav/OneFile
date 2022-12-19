@@ -3,11 +3,11 @@ from tkinter.ttk import *
 from tkinter import filedialog
 from tkinter import Button
 from PIL import ImageTk, Image
-from madhav import encryption as e
-from madhav import decryption as d
-from aviral import ma
-from aviral import uz
-from save import add_file
+from enc_dec import encryption as e
+from enc_dec import decryption as d
+from comp_decomp import ma
+from comp_decomp import uz
+from repetitive import add_file
 import img_grabber
 
 root = Tk()

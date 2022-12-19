@@ -1,7 +1,7 @@
 import os
 from cryptography.fernet import Fernet
-from save import sav
-from save import add_file
+from repetitive import sav
+from repetitive import add_file
 
 def encryption(filepath):
     filename = ""

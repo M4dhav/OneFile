@@ -1,10 +1,10 @@
 import shutil
 import os
-from save import add_file
-from save import sav
-from save import ret_dir
+from repetitive import add_file
+from repetitive import sav
+from repetitive import ret_dir
 from tkinter import *
-from save import error
+from repetitive import error
 var = None
 def new():
     top = Toplevel()
