@@ -52,7 +52,6 @@ b3.place(x=300,y=375)
 
 def encrypt():
     e(add_file(text))
-    # sav()
 encrp = ImageTk.PhotoImage(file=r"encrypt.png")
 b4 = Button(root,text="ENCRYPT",command=encrypt,height = 100,width = 100,image=encrp)
 b4.place(x=500,y=375)

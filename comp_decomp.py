@@ -4,7 +4,6 @@ from repetitive import add_file
 from repetitive import sav
 from repetitive import ret_dir
 from tkinter import *
-from repetitive import error
 var = None
 def new():
     top = Toplevel()
@@ -22,7 +21,7 @@ def new():
     clicked.set("zip")
     drop = OptionMenu(top , clicked,*options)
     drop.place(x=105,y=40)
-    lbl = Label(top,text='''Select file format (should be zip,bztar,gztar,xztar)''').place(x=20,y=15)
+    lbl = Label(top,text='''Select file format (Compression Degree: zip<bztar<gztar<xztar)''').place(x=20,y=15)
     b = Button(top,text = "SUBMIT",command=fil)
     b.place(x=110,y = 75)
 
@@ -32,11 +31,15 @@ def new():
 def uz():
     # Full path of
     # the archive file
-    filename = add_file("x")
+    filename = add_file("Select Archive to be unzipped", (("zip files", "*.zip"),("bztar files", "*.bztar"), ("xztar files", "*.xztar"), ("gztar files", "*.gztar")))
+    try:
+        open(filename, "r")
+    except FileNotFoundError:
+        return
 
     # Target directory
     #print(filename.split('/')[-1].split('.')[0])
-    extract_dir = ret_dir()+'/'+filename.split('/')[-1].split('.')[0]
+    extract_dir = ret_dir("Select directory to be unzipped to")+'/'+filename.split('/')[-1].split('.')[0]
     os.mkdir(extract_dir)
     #print(extract_dir+filename.split('/')[-1].split('.')[0])
 
@@ -55,9 +58,9 @@ def uz():
 
 #make archive function
 def ma():
-    filename = ret_dir()
+    filename = ret_dir("Select directory to be zipped")
     #print(filename)
-    newname= ret_dir()+'/'+filename.split('/')[-1]
+    newname= ret_dir("Select directory to be zipped to")+'/'+filename.split('/')[-1]
     #print(newname)
     new()
     global var

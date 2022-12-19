@@ -4,64 +4,36 @@ from repetitive import sav
 from repetitive import add_file
 
 def encryption(filepath):
-    filename = ""
-    fileexten = ""
-    for i in filepath[::-1]:
-        if i == chr(92):
-            break
-        filename += i
-    for i in filepath[::-1]:
-        if i == ".":
-            break
-        fileexten += i
-    fileexten = fileexten[::-1]
-    filename = filename[::-1]
-    filename = filename.replace(".","")
-    filename = filename.replace(fileexten, "")
-    filename += "_encrypted"
-    filename += "." + fileexten
+    try:
+        open(filepath, "r")
+    except FileNotFoundError:
+        return
     key = Fernet.generate_key()
     key_path = sav("Choose Key File Path (Please save as '.key' file)")
-    # try:
-    #     open(key_path, "r")
-    # except FileNotFoundError:
-    #     print("Please select a valid key location.")
-    #     key_path = sav("Choose Key File Path (Please save as '.key' file)")
-    with open(key_path, "wb") as key_file:
-        key_file.write(key)
+    try:
+        with open(key_path, "wb") as key_file:
+            key_file.write(key)
+    except FileNotFoundError:
+        return
     with open(filepath,"rb") as file:
         content = file.read()
     content_encrypted = Fernet(key).encrypt(content)
     save_file_path = sav("Select Encrypted File Path")
-
     with open(save_file_path, "wb") as file:
         file.write(content_encrypted)
-    # else:
-    #     with open(filepath, "wb") as file:
-    #         file.write(content_encrypted)
-    #     return
     
 
 def decryption(filepath):
-    filename = ""
-    fileexten = ""
-    for i in filepath[::-1]:
-        if i == chr(92):
-            break
-        filename += i
-    for i in filepath[::-1]:
-        if i == ".":
-            break
-        fileexten += i
-    fileexten = fileexten[::-1]
-    filename = filename[::-1]
-    filename = filename.replace(".","")
-    filename = filename.replace(fileexten, "")
-    filename = filename.replace("_encrypted", "_decrypted")
-    filename += "." + fileexten
+    try:
+        open(filepath, "r")
+    except FileNotFoundError:
+        return
     key_path = add_file("Select Key File Path")
-    with open(key_path, "rb") as key_file:
-        key = key_file.read()
+    try:
+        with open(key_path, "rb") as key_file:
+            key = key_file.read()
+    except:
+        return
     with open(filepath,"rb") as file:
         content = file.read()
     content_decrypted = Fernet(key).decrypt(content)
