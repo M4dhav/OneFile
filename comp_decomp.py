@@ -49,6 +49,8 @@ def uz():
     new()
     global var
     archive_format = var
+    if archive_format == None:
+        return
     #print(filename)
     #print(extract_dir)
     #print(archive_format)
@@ -66,6 +68,8 @@ def ma():
     new()
     global var
     formatf = var
+    if formatf == None:
+        return
     # print(formatf)
     shutil.make_archive(newname,formatf,filename)
     

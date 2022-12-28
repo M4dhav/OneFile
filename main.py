@@ -1,6 +1,5 @@
 from tkinter import *
 from tkinter.ttk import *
-from tkinter import filedialog
 from tkinter import Button
 from PIL import ImageTk, Image
 from enc_dec import encryption as e
