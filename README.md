@@ -1,4 +1,4 @@
-# end-sem-hackathon-project
+# open-file-extractor
 Project for End Sem Hackathon 2022 (BU)
 
 The Problem:
